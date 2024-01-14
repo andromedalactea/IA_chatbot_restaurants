@@ -20,18 +20,17 @@ def main_flux(message):
     lang_judge = LangJudgeClass()
 
     # Language detected
-    lang_detected = lang_judge(connector.input()) 
-    print('Llego hasta aqui')
+    lang_detected = lang_judge(message) 
 
     # Initial answer
     answer = ''
-    candidate_txt = DBsearch.get_info(connector.input() + ' ' + answer)
-    
+    candidate_txt = DBsearch.get_info(message + ' ' + answer)
+    # print(candidate_txt)
     # Object of the bot 
     ans_bot = AnsBotClass(language_type=lang_detected) # Initialized the object in a specific language
 
     # Answer of the bot
-    response = ans_bot.response('問合せ：'+ connector.input() + candidate_txt)
+    answer = ans_bot.response('問合せ：'+ message + candidate_txt)
 
     # Transforming the response to an AudioFile
     # Here is the logic to transform the reponse to an audio in .wav format
@@ -39,6 +38,6 @@ def main_flux(message):
     return connector.output(answer)
 
 
-user_input = "東京で最高のレストランを教えてください"
+user_input = "Tell me some good restaurants in tokyo to eat sushi"
 response = main_flux(user_input)
 print(response)
