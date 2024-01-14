@@ -1,7 +1,7 @@
-from functions.function8 import LangJudgeClass
 from functions.function6 import AnsBotClass
-from functions.function9 import ConnectorClass
 from functions.function7 import  DBsearchClass
+from functions.function8 import LangJudgeClass
+from functions.function9 import ConnectorClass
 
 # Simulation of a simple Connector Class
 
