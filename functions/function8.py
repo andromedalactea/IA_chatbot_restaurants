@@ -49,5 +49,14 @@ class LangJudgeClass:
         if type_old == language_type:
             return ''  # Return an empty string if the language hasn't changed
         fprint('言語：', language_type)  # Print language type (comment in Japanese)
+
+        if language_type == 'ja':
+            language_type = 0
+        elif language_type == 'en':
+            language_type = 1
+        elif language_type == 'zh-cn':
+            language_type = 2
+        else: print("language no detected  or isn't japanese, chinese or english")
+
         return language_type
 

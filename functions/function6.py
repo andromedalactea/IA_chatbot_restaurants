@@ -11,7 +11,8 @@ from functions.function5 import system_prompt
 # Set the OpenAI API key from environment variables
 # os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 
-# Read the credentiasl from provided file !CHANGE THIS!
+############################################
+# Read the credentiasl from provided file !CHANGE THIS!, !THIS IS ONLY FOR TESTING!
 # Path to credentials
 credentials_file = 'functions/env.txt'
 
@@ -21,7 +22,10 @@ with open(credentials_file, 'r') as file:
         key, value = line.partition("=")[::2]
         os.environ[key.strip()] = value.strip()
 
+#########################################
 secret_key = os.environ["OPENAI_API_KEY"]
+
+
 
 class AnsBotClass():
     def __init__(self, language_type, model_name="gpt-4-1106-preview"):

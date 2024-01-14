@@ -1,3 +1,6 @@
 langdetect
 langchain
 openai
+pandas
+numpy
+tiktoken

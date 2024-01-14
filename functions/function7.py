@@ -12,18 +12,18 @@ import openai,os
 #from langchain.chat_models import ChatOpenAI
 # from langchain.prompts import (    ChatPromptTemplate,    MessagesPlaceholder,    SystemMessagePromptTemplate,    HumanMessagePromptTemplate)
 
-secret_key=os.environ["OPENAI_API_KEY"]
+secret_key = os.environ["OPENAI_API_KEY"]
 
 class DBsearchClass():
 #  def __init__(self,template,pkl_tot,pkl_vec):
-  def __init__(self,pkl_tot,pkl_vec):
+  def __init__(self, pkl_tot, pkl_vec):
     from functions.function1 import ( stop_watch )
     self.stop_watch = stop_watch()                     # テスト用であり、運用時には不要
     ## 2023-11-07 類似性検索以外は不使用
-    self.df_tot,self.df_vec = self.load_DB(pkl_tot,pkl_vec)
+    self.df_tot, self.df_vec = self.load_DB(pkl_tot, pkl_vec)
 
 
-  def load_DB(self,pkl_tot,pkl_vec):
+  def load_DB(self, pkl_tot, pkl_vec):
     import pickle
     from functions.function4 import read_pkl
     from functions.function0 import ( bprint,fprint )
