@@ -2,7 +2,7 @@ from functions.function6 import AnsBotClass
 from functions.function7 import  DBsearchClass
 from functions.function8 import LangJudgeClass
 from functions.function9 import ConnectorClass
-
+from functions.text_to_speech_class import AudioGeneratorClass
 # Simulation of a simple Connector Class
 
 # Flux of the platform
@@ -21,7 +21,8 @@ def main_flux(message):
 
     # Language detected
     lang_detected = lang_judge(message) 
-
+    print('------------------------------------------------------------')
+    print(lang_detected)
     # Initial answer
     answer = ''
     candidate_txt = DBsearch.get_info(message + ' ' + answer)
@@ -33,7 +34,17 @@ def main_flux(message):
     answer = ans_bot.response('問合せ：'+ message + candidate_txt)
 
     # Transforming the response to an AudioFile
-    # Here is the logic to transform the reponse to an audio in .wav format
+    # Create a class to convert audio
+    # Create an instance of the class
+    audio_generator = AudioGeneratorClass(
+        text = answer,  # Text to convert
+        language = 1,  # Choose the language (0: Japanese, 1: English, 2: Chinese)
+        outfilename = "answer_audio.wav"  # The name of the output file
+    )
+
+    # Call the method to generate the audio
+    audio_generator.synthesize_speech()
+
 
     return connector.output(answer)
 
