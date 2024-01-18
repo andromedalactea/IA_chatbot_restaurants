@@ -40,9 +40,9 @@ class AnsBotClass():
         self.stop_watch = stop_watch()
 
         # Generate the system prompt based on the specified language
-        if language_type == 'zh-cn':
+        if language_type == 2:
             template = system_prompt('中国語', '请用中文。', '中国語以外は使わないでください。')
-        elif language_type == 'en':
+        elif language_type == 1:
             template = system_prompt('英語', '', '英語以外は使わないでください。')
         else:
             template = system_prompt('', '', '')
